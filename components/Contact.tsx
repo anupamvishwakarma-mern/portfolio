@@ -9,11 +9,26 @@ export default function Contact() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    setForm({ name: "", email: "", message: "" });
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", message: "" });
+        setTimeout(() => setSent(false), 3000);
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error sending message. Please try again.");
+    }
   };
 
   const inputStyle = {

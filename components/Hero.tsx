@@ -62,7 +62,7 @@ export default function Hero() {
           Passionate about clean code and exceptional user experiences.
         </p>
 
-        <div className="flex flex-wrap items-center gap-4 mb-16">
+        <div className="flex flex-wrap items-center gap-4 mb-8">
           <a href="#projects" className="px-8 py-3 font-bold text-sm mono tracking-wider transition-all hover:scale-105"
             style={{ background: "var(--accent)", color: "var(--bg)" }}>
             View Projects
@@ -75,7 +75,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center gap-6 mb-8">
           <a href="mailto:akv59199@gmail.com" className="flex items-center gap-2 mono text-xs transition-colors"
             style={{ color: "var(--muted)" }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "var(--accent)"}
@@ -91,10 +91,10 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{ color: "var(--muted)" }}>
+      {/* <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style={{ color: "var(--muted)" }}>
         <span className="mono text-xs tracking-widest uppercase">Scroll</span>
         <ArrowDown size={16} className="float-anim" />
-      </div>
+      </div> */}
 
       <div className="absolute right-8 top-1/2 -translate-y-1/2 mono font-black pointer-events-none select-none hidden lg:block"
         style={{ color: "rgba(0,255,136,0.04)", fontSize: "200px", lineHeight: 1 }}>

@@ -5,7 +5,7 @@ const skillGroups = [
   {
     category: "Frontend", tag: "01",
     skills: [
-      { name: "React.js", level: 95 }, { name: "JavaScript", level: 92 },
+      { name: "React.js", level: 95 }, { name: "Next.js", level: 70 }, { name: "JavaScript", level: 92 },
       { name: "Redux", level: 88 }, { name: "Tailwind CSS", level: 85 },
       { name: "HTML / CSS", level: 90 }, { name: "Bootstrap", level: 80 },
     ],
@@ -15,6 +15,8 @@ const skillGroups = [
     skills: [
       { name: "Node.js", level: 85 }, { name: "Express.js", level: 83 },
       { name: "RESTful APIs", level: 90 }, { name: "JWT Auth", level: 82 },
+      {name: "Payment Integration", level: 75 },
+      { name: "Web Sockets", level: 70 },
     ],
   },
   {
@@ -26,8 +28,8 @@ const skillGroups = [
   {
     category: "Tools & More", tag: "04",
     skills: [
-      { name: "Next.js", level: 70 }, { name: "Git", level: 85 },
-      { name: "Firebase", level: 68 }, { name: "Elastic Search", level: 65 }, { name: "Postman", level: 80 },
+       { name: "Git", level: 85 },
+      { name: "Firebase", level: 68 }, { name: "Elastic Search", level: 65 }
     ],
   },
 ];
