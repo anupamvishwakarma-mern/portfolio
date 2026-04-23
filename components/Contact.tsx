@@ -5,12 +5,15 @@ import { useState } from "react";
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
@@ -23,11 +26,12 @@ export default function Contact() {
         setForm({ name: "", email: "", message: "" });
         setTimeout(() => setSent(false), 3000);
       } else {
-        alert("Failed to send message. Please try again.");
+        setError("Failed to send message. Please try again.");
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("Error sending message. Please try again.");
+      setError("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -97,8 +101,9 @@ export default function Contact() {
                 color: sent ? "var(--accent)" : "var(--bg)",
                 border: sent ? "1px solid var(--accent)" : "none",
               }}>
-              {sent ? "Message Sent! ✓" : <><Send size={14} /> Send Message</>}
+              {loading ? "Sending..." : sent ? "Message Sent! ✓" : <><Send size={14} /> Send Message</>}
             </button>
+            {error && <p className="text-sm mt-2" style={{ color: "var(--red)" }}>{error}</p>}
           </form>
         </div>
       </div>

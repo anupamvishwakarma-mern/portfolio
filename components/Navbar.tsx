@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { label: "About", href: "#about" },
@@ -28,8 +29,8 @@ export default function Navbar() {
         borderBottom: scrolled ? "1px solid var(--border)" : "none",
       }}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="mono text-sm font-bold" style={{ color: "var(--accent)" }}>
-          AK<span className="cursor-blink">_</span>
+        <a href="#" className="mono text-3xl font-bold" style={{ color: "var(--accent)" }}>
+          <Image src="/logo.png" alt="Logo" width={90} height={32} className="inline-block mr-2" />
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (

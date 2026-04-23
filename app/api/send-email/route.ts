@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     // Send email to you
     const mailOptions = {
       from: email,
-      to: 'akv59199@gmail.com',
+      to: process.env.EMAIL_USER,
       subject: `New Message from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -59,7 +59,6 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Email error:', error);
     return NextResponse.json(
       { error: 'Failed to send email' },
       { status: 500 }

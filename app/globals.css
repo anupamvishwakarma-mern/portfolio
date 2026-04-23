@@ -13,6 +13,7 @@
   --text: #e8e8f0;
   --muted: #6b6b8a;
   --border: #222235;
+  --red: #ff4d4d;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
